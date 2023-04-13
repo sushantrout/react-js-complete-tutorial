@@ -61,6 +61,34 @@ state can be changed
 useState Hook
 this.state
 
+setState is asynchronous function
+
+
+```
+  this.setState({
+      ...this.state,
+      count: this.state.count + 1,
+    });
+    console.log(this.state.count);
+    
+    
+    Always the console will print the current value but not the upadted value so we need to write in the call back function.
+    
+    this.setState({
+      ...this.state,
+      count: this.state.count + 1,
+    }, () => {
+      console.log(this.state.count);
+    });
+    
+    React bind multiple setState method into one if we want to make it call multiple time we need to pass as one function
+    
+    this.setState((prevState) => ({
+        count: prevState.count + 1
+      }));
+    
+```
+
 ## Componnet Type
 ## Pure Componnet
 Pure Compnnet vs Regular Component
