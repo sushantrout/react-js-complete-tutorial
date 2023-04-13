@@ -80,6 +80,13 @@ setState is asynchronous function
     }, () => {
       console.log(this.state.count);
     });
+    
+    React bind multiple setState method into one if we want to make it call multiple time we need to pass as one function
+    
+    this.setState((prevState) => {
+      count: prevState.count + 1
+    }, () => console.log(this.state.count));
+    
 ```
 
 ## Componnet Type
