@@ -38,7 +38,11 @@ Stateless/Dumb/Presentatil
   provide lifecycle hooks
   Statefull/smart/Container
 
+## Props
 
+```
+  const PropExample = ({name} : any) => <h1>Prop Example {name}</h1>
+```
 
 ## Componnet Type
 ## Pure Componnet
