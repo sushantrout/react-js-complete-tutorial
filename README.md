@@ -9,10 +9,10 @@ Component
     
 Component TYpe
 ------------------
-Stateless Functional Component-
+```Stateless Functional Component-
   function Wellcome(props) {
     return <h1>Hello WOrld</h1>
-  }
+  }```
   
   -Optional resive properties (props)
   Simple Solution
@@ -25,11 +25,11 @@ Stateless/Dumb/Presentatil
   
  Statefull Class Component
  ----------------------------
-  class Wellcome extends Recat.Component {
+  ```class Wellcome extends Recat.Component {
     render() {
       return <h1>Hello WOrld</h1>
     }
-  }
+  }```
   -prop and private state
   -More feature rich
   Maintain there own data- state
