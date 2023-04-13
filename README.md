@@ -42,6 +42,9 @@ Stateless/Dumb/Presentatil
 
 ```
   const PropExample = ({name} : any) => <h1>Prop Example {name}</h1>
+  
+  <PropExample name="1 as Prop"></PropExample>
+  <PropExample name="2 as prop"></PropExample>
 ```
 
 ## Componnet Type
