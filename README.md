@@ -63,6 +63,25 @@ this.state
 
 setState is asynchronous function
 
+
+```
+  this.setState({
+      ...this.state,
+      count: this.state.count + 1,
+    });
+    console.log(this.state.count);
+    
+    
+    Always the console will print the current value but not the upadted value so we need to write in the call back function.
+    
+    this.setState({
+      ...this.state,
+      count: this.state.count + 1,
+    }, () => {
+      console.log(this.state.count);
+    });
+```
+
 ## Componnet Type
 ## Pure Componnet
 Pure Compnnet vs Regular Component
