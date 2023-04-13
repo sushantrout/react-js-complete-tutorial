@@ -1,5 +1,4 @@
 import './App.css';
-import StateClassExample from './state-of-componnet/StateClassExample';
 
 function App() {
   return (
@@ -13,7 +12,8 @@ function App() {
       <PropExampleInClass name="sssss" optionalParam="Its optional"></PropExampleInClass>
       <PropExampleInClass name="Test two"></PropExampleInClass> */}
 
-      <StateClassExample></StateClassExample>
+      {/* <StateClassExample></StateClassExample>
+      <IncrementStateValue></IncrementStateValue> */}
     </div>
   );
 }
