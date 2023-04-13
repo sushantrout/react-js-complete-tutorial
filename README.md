@@ -47,6 +47,20 @@ Stateless/Dumb/Presentatil
   <PropExample name="2 as prop"></PropExample>
 ```
 
+## State vs Props
+
+props- props get passed to the componet
+Functiona Parameters
+props are immutable
+props- Functiinal Compnent
+this.props in class componnet
+
+state- state ismanaged in the compnent
+variables declares in the function body
+state can be changed
+useState Hook
+this.state
+
 ## Componnet Type
 ## Pure Componnet
 Pure Compnnet vs Regular Component
