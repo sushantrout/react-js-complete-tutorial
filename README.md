@@ -61,6 +61,8 @@ state can be changed
 useState Hook
 this.state
 
+setState is asynchronous function
+
 ## Componnet Type
 ## Pure Componnet
 Pure Compnnet vs Regular Component
