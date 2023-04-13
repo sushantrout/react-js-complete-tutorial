@@ -12,7 +12,8 @@ Component TYpe
 ```Stateless Functional Component-
   function Wellcome(props) {
     return <h1>Hello WOrld</h1>
-  }```
+  }
+  ```
   
   -Optional resive properties (props)
   Simple Solution
@@ -29,7 +30,8 @@ Stateless/Dumb/Presentatil
     render() {
       return <h1>Hello WOrld</h1>
     }
-  }```
+  }
+  ```
   -prop and private state
   -More feature rich
   Maintain there own data- state
