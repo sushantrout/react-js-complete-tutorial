@@ -1,4 +1,6 @@
 import './App.css';
+import FunctionClick from './event-handling/FunctionClick';
+import FunctionClickInClass from './event-handling/FunctionClickInClass';
 
 function App() {
   return (
@@ -14,6 +16,9 @@ function App() {
 
       {/* <StateClassExample></StateClassExample>
       <IncrementStateValue></IncrementStateValue> */}
+
+      <FunctionClick></FunctionClick>
+      <FunctionClickInClass></FunctionClickInClass>
     </div>
   );
 }
