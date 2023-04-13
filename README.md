@@ -1,5 +1,5 @@
 # react-js-complete-tutorial
-Component
+## Component
 -----------
   Components describe a part of the user interface.
   They are re-usable and can be nested inside other component.
@@ -7,9 +7,9 @@ Component
     Functional Componnet
     Class Component
     
-Component TYpe
+## Component TYpe
 ------------------
-Stateless Functional Component-
+## Stateless Functional Component-
   ``` 
   function Wellcome(props) {
     return <h1>Hello WOrld</h1>
@@ -25,7 +25,7 @@ Mailnly responsible for the UI
 Stateless/Dumb/Presentatil
   
   
- Statefull Class Component
+##  Statefull Class Component
  ----------------------------
   ```
     class Wellcome extends Recat.Component {
@@ -43,24 +43,24 @@ Stateless/Dumb/Presentatil
 
 
 
-Componnet Type
+## Componnet Type
 ---------------------------
-Pure Componnet
+## Pure Componnet
 -------------------
 Pure Compnnet vs Regular Component
 
-Pure Componnet
+## Pure Componnet
 --------------
   A pure componnet does implmnet the shouldComponnetUpdate method. it always do shallow comparison.
   
-  Shallow Comparison
+  ### Shallow Comparison
   -------------------
   Primitive - a nd b return true if value same
   Complex - same refrence then return true.
   
-Regular Componnet
+## Regular Componnet
 -----------------
   A regular componnet does not implmnet the shouldComponnetUpdate method. it always return true by default.
   
- Memo
+##  Memo
  ----------------
