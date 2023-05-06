@@ -7,15 +7,19 @@ export class MyContext {
 }
 export const NumberContext = React.createContext(new MyContext());
 const UseContextExample = () => {
-  let [name, setNameValue] = useState("Aswani");
-  return (
-    <NumberContext.Provider value={{ name, setNameValue }}>
+  let [name, setNameValue] = useState("Marriage");
+  return <>
+    <div style={{
+      background: 'yellow'
+    }}>
+      <NumberContext.Provider value={{ name, setNameValue }}>
       <div>
         <h1>UseContextExample {name}</h1>
         <UseContextChild1></UseContextChild1>
       </div>
     </NumberContext.Provider>
-  );
+    </div>
+  </>
 };
 
 export default UseContextExample;

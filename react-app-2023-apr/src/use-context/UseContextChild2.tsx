@@ -7,6 +7,7 @@ export class UseContextChild2 extends PureComponent {
       <NumberContext.Consumer>
         {(value) => (
           <>
+            <h1>UseContextChild2</h1>
             <h1>{value.name}</h1>
           </>
         )}

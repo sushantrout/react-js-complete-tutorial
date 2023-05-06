@@ -5,7 +5,10 @@ import { NumberContext } from "./UseContextExample";
 const UseContextChild1 = () => {
   let context = useContext(NumberContext);
   return (
-    <div>
+    <div style={{
+      background: 'pink',
+      border: '10px solid red'
+    }}>
       <h1>UseContextChild1 {context.name}</h1>
       <UseContextChild2></UseContextChild2>
       <button onClick={() => {
