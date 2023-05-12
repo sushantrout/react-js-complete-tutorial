@@ -109,7 +109,8 @@ Pure Compnnet vs Regular Component
 
 
 
-toggleGroup(groupName: string) {
+```
+  toggleGroup(groupName: string) {
   const groupOptions = this.options.filter((option) => option.group === groupName);
 
   if (groupOptions.length > 0) {
@@ -143,3 +144,4 @@ toggleGroup(groupName: string) {
       <span (click)="toggleGroup(group)">+</span>
     </div>
   </ng-template>
+```
