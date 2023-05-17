@@ -110,38 +110,24 @@ Pure Compnnet vs Regular Component
 
 
 ```
-  toggleGroup(groupName: string) {
-  const groupOptions = this.options.filter((option) => option.group === groupName);
+file: File;
+workbook: XLSX.WorkBook;
+worksheet: XLSX.WorkSheet;
 
-  if (groupOptions.length > 0) {
-    const isCollapsed = groupOptions[0].collapsed;
-
-    groupOptions.forEach((option) => {
-      option.collapsed = !isCollapsed;
+// Method to open and read the Excel file
+openExcelFile() {
+  this.http.get('assets/path/to/your/excel/file.xlsx', { responseType: 'arraybuffer' })
+    .subscribe((arrayBuffer: ArrayBuffer) => {
+      const data = new Uint8Array(arrayBuffer);
+      const arr = new Array();
+      for (let i = 0; i !== data.length; ++i) arr[i] = String.fromCharCode(data[i]);
+      const bstr = arr.join('');
+      const workbook = XLSX.read(bstr, { type: 'binary' });
+      const firstSheetName = workbook.SheetNames[0];
+      const worksheet = workbook.Sheets[firstSheetName];
+      this.workbook = workbook;
+      this.worksheet = worksheet;
     });
-
-    const optionElements = document.querySelectorAll(`.option-item[data-group="${groupName}"]`);
-
-    if (optionElements) {
-      optionElements.forEach((option) => {
-        if (isCollapsed) {
-          option.classList.remove('hidden');
-        } else {
-          option.classList.add('hidden');
-        }
-      });
-    }
-  }
 }
 
-
-<ng-template let-item="item" let-itemIndex="index" let-group="group" let-groupIndex="groupIndex">
-    <div class="option-item" [attr.data-group]="group" [ngClass]="{ hidden: item.collapsed }">
-      <input type="checkbox" [checked]="item.checked" (change)="onChange(item)" />
-      <span>{{ item.name }}</span>
-    </div>
-    <div class="group-toggle" *ngIf="groupIndex === 0 || group !== options[itemIndex - 1].group">
-      <span (click)="toggleGroup(group)">+</span>
-    </div>
-  </ng-template>
 ```
