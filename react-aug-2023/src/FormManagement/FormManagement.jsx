@@ -1,5 +1,6 @@
 import { useState } from "react";
 import FormManagementCSS from "./FormManagement.css";
+import ListPage from "./ListPage";
 const FormManagement = () => {
   const initialFormData = {
     firstName: "",
@@ -13,29 +14,30 @@ const FormManagement = () => {
   };
 
   const [formData, setFormData] = useState(initialFormData);
+  const [employees, setEmployees] = useState([]);
   const [formErrors, setFormErrors] = useState({});
 
   const handleInputChange = (event) => {
     const { name, value, type, checked } = event.target;
     const inputValue = type === "checkbox" ? checked : value;
 
-    if(type === "checkbox") {
-        if (checked) {
-            setFormData((prevData) => ({
-              ...prevData,
-              [name]: [...prevData[name], value],
-            }));
-          } else {
-            setFormData((prevData) => ({
-              ...prevData,
-              [name]: prevData[name].filter((item) => item !== value),
-            }));
-          }
-    } else {
+    if (type === "checkbox") {
+      if (checked) {
         setFormData((prevData) => ({
           ...prevData,
-          [name]: inputValue,
+          [name]: [...prevData[name], value],
         }));
+      } else {
+        setFormData((prevData) => ({
+          ...prevData,
+          [name]: prevData[name].filter((item) => item !== value),
+        }));
+      }
+    } else {
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: inputValue,
+      }));
     }
   };
 
@@ -44,6 +46,9 @@ const FormManagement = () => {
     const errors = validateForm(formData);
     if (Object.keys(errors).length === 0) {
       console.log("Form submitted:", formData);
+      let newEmployees = [...employees, { ...formData }];
+      setEmployees(newEmployees);
+      handleReset();
     } else {
       setFormErrors(errors);
     }
@@ -71,147 +76,166 @@ const FormManagement = () => {
   };
 
   return (
-    <div className="form-container">
-      <h2>Contact Us</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="firstName">First Name</label>
-          <input
-            type="text"
-            id="firstName"
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleInputChange}
-            className={formErrors.firstName ? "error" : ""}
-            required
-          />
-          {formErrors.firstName && (
-            <span className="error-message">{formErrors.firstName}</span>
-          )}
-        </div>
-        <div className="form-group">
-          <label htmlFor="lastName">Last Name</label>
-          <input
-            type="text"
-            id="lastName"
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleInputChange}
-            className={formErrors.lastName ? "error" : ""}
-            required
-          />
-          {formErrors.lastName && (
-            <span className="error-message">{formErrors.lastName}</span>
-          )}
-        </div>
-        <div className="form-group">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            className={formErrors.email ? "error" : ""}
-            required
-          />
-          {formErrors.email && (
-            <span className="error-message">{formErrors.email}</span>
-          )}
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label>Gender</label>
-          <div className="radio-group">
-            <label>
+    <>
+      <div className="row">
+        <div className="col-3">
+          <h2>Contact Us</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="firstName">First Name</label>
               <input
-                type="radio"
-                name="gender"
-                value="male"
-                checked={formData.gender === "male"}
+                type="text"
+                id="firstName"
+                name="firstName"
+                value={formData.firstName}
                 onChange={handleInputChange}
+                className={formErrors.firstName ? "error" : ""}
+                required
               />
-              Male
-            </label>
-            <label>
+              {formErrors.firstName && (
+                <span className="error-message">{formErrors.firstName}</span>
+              )}
+            </div>
+            <div className="form-group">
+              <label htmlFor="lastName">Last Name</label>
               <input
-                type="radio"
-                name="gender"
-                value="female"
-                checked={formData.gender === "female"}
+                type="text"
+                id="lastName"
+                name="lastName"
+                value={formData.lastName}
                 onChange={handleInputChange}
+                className={formErrors.lastName ? "error" : ""}
+                required
               />
-              Female
-            </label>
-          </div>
-        </div>
-        <div className="form-group">
-          <label>Interests</label>
-          <div className="checkbox-group">
-            <label>
+              {formErrors.lastName && (
+                <span className="error-message">{formErrors.lastName}</span>
+              )}
+            </div>
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
               <input
-                type="checkbox"
-                name="interests"
-                value="reading"
-                checked={formData.interests.includes("reading")}
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
                 onChange={handleInputChange}
+                className={formErrors.email ? "error" : ""}
+                required
               />
-              Reading
-            </label>
-            <label>
+              {formErrors.email && (
+                <span className="error-message">{formErrors.email}</span>
+              )}
+            </div>
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
               <input
-                type="checkbox"
-                name="interests"
-                value="sports"
-                checked={formData.interests.includes("sports")}
+                type="password"
+                id="password"
+                name="password"
+                value={formData.password}
                 onChange={handleInputChange}
+                required
               />
-              Sports
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                name="interests"
-                value="music"
-                checked={formData.interests.includes("music")}
-                onChange={handleInputChange}
-              />
-              Music
-            </label>
-            {/* Add more checkboxes as needed */}
-          </div>
-        </div>
+            </div>
+            <div className="form-group">
+              <label>Gender</label>
+              <div className="radio-group">
+                <label>
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="male"
+                    checked={formData.gender === "male"}
+                    onChange={handleInputChange}
+                  />
+                  Male
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="female"
+                    checked={formData.gender === "female"}
+                    onChange={handleInputChange}
+                  />
+                  Female
+                </label>
+              </div>
+            </div>
+            <div className="form-group">
+              <label>Interests</label>
+              <div className="checkbox-group">
+                <label>
+                  <input
+                    type="checkbox"
+                    name="interests"
+                    value="reading"
+                    checked={formData.interests.includes("reading")}
+                    onChange={handleInputChange}
+                  />
+                  Reading
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    name="interests"
+                    value="sports"
+                    checked={formData.interests.includes("sports")}
+                    onChange={handleInputChange}
+                  />
+                  Sports
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    name="interests"
+                    value="music"
+                    checked={formData.interests.includes("music")}
+                    onChange={handleInputChange}
+                  />
+                  Music
+                </label>
+                {/* Add more checkboxes as needed */}
+              </div>
+            </div>
 
-        <div className="form-group">
-          <label htmlFor="message">Message</label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleInputChange}
-            rows="4"
-          />
+            <div className="form-group">
+              <label htmlFor="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                rows="4"
+              />
+            </div>
+            <div className="form-buttons">
+              <button type="submit" className="submit-button">
+                Submit
+              </button>
+              <button
+                type="button"
+                className="reset-button"
+                onClick={handleReset}
+              >
+                Reset
+              </button>
+            </div>
+          </form>
         </div>
-        <div className="form-buttons">
-          <button type="submit" className="submit-button">
-            Submit
-          </button>
-          <button type="button" className="reset-button" onClick={handleReset}>
-            Reset
-          </button>
+        <div className="col09">
+          {employees.map((e) => {
+            return (
+              <ListPage
+                formData={e}
+                setFormData={setFormData}
+                initialFormData={initialFormData}
+              ></ListPage>
+            );
+          })}
         </div>
-      </form>
-    </div>
+      </div>
+    </>
   );
 };
 

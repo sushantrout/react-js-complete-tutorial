@@ -1,69 +1,95 @@
+/* Form Container */
 .form-container {
-  max-width: 500px;
-  margin: 0 auto;
   padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   background-color: #fff;
+  border-radius: 5px;
+  color: #333; /* Adjust the font color for the form content */
 }
 
-.form-group {
+.form-container h2 {
   margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #007bff; /* Adjust the font color for the heading */
 }
 
-label {
+/* Form Groups */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
   display: block;
-  margin-bottom: 6px;
   font-weight: bold;
-  color: #333;
+  margin-bottom: 5px;
+  color: #555; /* Adjust the font color for labels */
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"],
-textarea {
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
+  border-radius: 3px;
+  color: #333; /* Adjust the font color for input fields */
 }
 
-.error-message {
-  color: #dc3545;
-  font-size: 12px;
+.radio-group,
+.checkbox-group {
+  display: flex;
+  gap: 10px;
   margin-top: 5px;
 }
 
-.radio-group {
+/* Buttons */
+.form-buttons {
   display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.checkbox-label {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  color: #555;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
 .submit-button,
 .reset-button {
   padding: 10px 20px;
   border: none;
-  border-radius: 4px;
-  font-size: 14px;
+  border-radius: 3px;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  color: #fff; /* Adjust the font color for buttons */
 }
 
 .submit-button {
   background-color: #007bff;
-  color: #fff;
 }
 
 .reset-button {
-  background-color: #f0f0f0;
+  background-color: #ccc;
+}
+
+/* Error Messages */
+.error-message {
+  display: block;
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+.list-container {
+  display: flex;
+  width: 60%;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+}
+
+.col-3 {
+  width: 30%;
+}
+
+.col-9 {
+  width: 67%;
 }
