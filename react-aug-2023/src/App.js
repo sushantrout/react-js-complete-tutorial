@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import CounterState from "./CounterState/CounterState";
+import FormManagement from "./FormManagement/FormManagement";
+import ListRenderingExample from "./ListRenderingExample/ListRenderingExample";
+import ConditionalRenderingParent from "./conditional-rendering/ConditionalRenderingParent";
+import employees from "./employees";
+import JSXASAsPropsTest from "./jsx-as-props/JSXASAsPropsTest";
+import JSXASChild from "./jsx-as-props/JSXASChild";
 
 function App() {
+  const data = employees;
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <JSXASAsPropsTest>
+        <JSXASChild></JSXASChild>
+      </JSXASAsPropsTest> */}
+      {/* <ConditionalRenderingParent></ConditionalRenderingParent> */}
+     {/*  <ListRenderingExample items={data} /> */}
+     {/* <CounterState></CounterState> */}
+     <FormManagement></FormManagement>
     </div>
   );
 }
